@@ -4,11 +4,22 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-//Условие задачи
-//1. Сумма двух
-//Дан массив целых чисел nums и целое число target,
-// вернуть индексы двух чисел так, чтобы их сумма давала target
 public class Solution {
+
+    public int[] twoSum(int[] nums, int target) {
+
+        //Первый элемент число, второй индекс в массиве nums
+        Map<Integer,Integer> container = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if (container.containsKey(target-nums[i])){
+                return new int[]{i, container.get(target-nums[i])};
+            }else{
+                container.put(nums[i],i);
+            }
+        }
+        return new int[] {};
+    }
 
     public static void main(String[] args) {
 
@@ -31,22 +42,6 @@ public class Solution {
         target = 6;
         result = solution.twoSum(numsCase3,target);
         System.out.println("Результат случая 3: "+ Arrays.toString(result));
-
-    }
-
-    public int[] twoSum(int[] nums, int target) {
-
-        //Первый элемент число, второй индекс в массиве nums
-        Map<Integer,Integer> container = new HashMap<>();
-
-        for (int i = 0; i < nums.length; i++) {
-            if (container.containsKey(target-nums[i])){
-                return new int[]{i, container.get(target-nums[i])};
-            }else{
-                container.put(nums[i],i);
-            }
-        }
-        return new int[] {};
     }
 }
 
