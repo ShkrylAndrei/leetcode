@@ -19,23 +19,16 @@ package info.shkryl.task2_addTwoNumbers;
 public class Solution {
 
     public static void main(String[] args) {
-       ListNode l1ThirdElement=new ListNode(3);
-       ListNode l1SecondElement=new ListNode(4,l1ThirdElement);
-       ListNode l1 = new ListNode(2,l1SecondElement);
-
-       ListNode l2ThirdElement = new ListNode(4);
-       ListNode l2SecondElement = new ListNode(6,l2ThirdElement);
-       ListNode l2 = new ListNode(5,l2SecondElement);
+       ListNode l1 = fillLinkedList(243);
+       ListNode l2=fillLinkedList(564);
 
        Solution solution = new Solution();
        ListNode result = solution.addTwoNumbers(l1,l2);
        //Вывод на экран
-        ListNode head = result;
-        while (head!=null){
-           System.out.print(head.val+" ");
-           head = head.next;
-       }
-        System.out.println();
+        while (result!=null){
+            System.out.print(result.val+" ");
+            result=result.next;
+        }
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -69,6 +62,20 @@ public class Solution {
             current.next = new ListNode(carry);
         }
         return dummyHead.next; // Возвращаем начало результата
+    }
+
+    public static ListNode fillLinkedList(int number) {
+        if (number == 0) {
+            return new ListNode(0);
+        }
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
+        while (number > 0) {
+            curr.next = new ListNode(number % 10);
+            curr = curr.next;
+            number /= 10;
+        }
+        return dummy.next;
     }
 }
 
