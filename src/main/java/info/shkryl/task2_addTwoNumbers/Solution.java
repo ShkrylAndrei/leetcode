@@ -31,7 +31,7 @@ public class Solution {
         }
     }
 
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    private ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         // Виртуальная голова для удобства построения нового списка
         ListNode dummyHead = new ListNode(0);
         ListNode current = dummyHead;
@@ -64,7 +64,7 @@ public class Solution {
         return dummyHead.next; // Возвращаем начало результата
     }
 
-    public static ListNode fillLinkedList(int number) {
+    private static ListNode fillLinkedList(int number) {
         if (number == 0) {
             return new ListNode(0);
         }
