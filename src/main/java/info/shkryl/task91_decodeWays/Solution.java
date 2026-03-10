@@ -28,4 +28,10 @@ class Solution {
         }
         return dp[n];
     }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int result = solution.numDecodings("11106");
+        System.out.println(result);
+    }
 }
